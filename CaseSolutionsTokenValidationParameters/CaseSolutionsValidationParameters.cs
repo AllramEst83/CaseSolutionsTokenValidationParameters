@@ -50,8 +50,17 @@ namespace CaseSolutionsTokenValidationParameters
             services.AddAuthorization(options =>
             {
                 //Add more roles here to handel diffrent type of users: admin, user, editUser
-                options.AddPolicy(TokenValidationConstants.Policies.AuthAPIAdmin, policy => policy.RequireClaim(TokenValidationConstants.Roles.Role, TokenValidationConstants.Roles.AdminAccess));
-                options.AddPolicy(TokenValidationConstants.Policies.AuthAPICommonUser, policy => policy.RequireClaim(TokenValidationConstants.Roles.Role, TokenValidationConstants.Roles.CommonUserAccess));
+                options.AddPolicy(
+                    TokenValidationConstants.Policies.AuthAPIAdmin, 
+                    policy => policy.RequireClaim(
+                        TokenValidationConstants.Roles.Role, 
+                        TokenValidationConstants.Roles.AdminAccess));
+
+                options.AddPolicy(
+                    TokenValidationConstants.Policies.AuthAPICommonUser, 
+                    policy => policy.RequireClaim(
+                        TokenValidationConstants.Roles.Role, 
+                        TokenValidationConstants.Roles.CommonUserAccess));
             });
         }
     }
