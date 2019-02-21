@@ -10,6 +10,7 @@ namespace CaseSolutionsTokenValidationParameters
     {
         public static TokenValidationParameters Get_C_S_ValidationParameters(string issuer, string audience, SymmetricSecurityKey signingKey)
         {
+            //validationParameters
             TokenValidationParameters validationParameters = new TokenValidationParameters()
             {
                 ValidateIssuer = true,
@@ -29,16 +30,15 @@ namespace CaseSolutionsTokenValidationParameters
             return validationParameters;
         }
 
-
-
         public static void AddValidationParameters(this IServiceCollection services, string issuer, string audience, SymmetricSecurityKey signingKey)
         {
-
+            //AddAuthentication
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
+            //AddJwtBearer
             .AddJwtBearer(configureOptions =>
             {
                 configureOptions.ClaimsIssuer = issuer;

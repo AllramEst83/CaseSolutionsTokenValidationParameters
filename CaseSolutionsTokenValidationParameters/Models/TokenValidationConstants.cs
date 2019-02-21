@@ -10,7 +10,7 @@ namespace CaseSolutionsTokenValidationParameters.Models
         {
             public const string AdminAccess = "admin_access";
             public const string CommonUserAccess = "common_user_access";
-            public const string Role = "role";
+            public const string Role = "rol";
             public const string Id = "id";
 
         }
