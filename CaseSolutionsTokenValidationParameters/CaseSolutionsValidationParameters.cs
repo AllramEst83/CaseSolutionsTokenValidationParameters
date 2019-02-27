@@ -61,6 +61,12 @@ namespace CaseSolutionsTokenValidationParameters
                     policy => policy.RequireClaim(
                         TokenValidationConstants.Roles.Role, 
                         TokenValidationConstants.Roles.CommonUserAccess));
+
+                options.AddPolicy(
+                TokenValidationConstants.Policies.AuthAPIEditUser,
+                policy => policy.RequireClaim(
+                    TokenValidationConstants.Roles.Role,
+                    TokenValidationConstants.Roles.EditUserAccess));
             });
         }
     }
